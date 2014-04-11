@@ -28,6 +28,11 @@ var NpmGenerator = yeoman.generators.Base.extend({
     }];
 
     prompts.push({
+      name: 'moduleDescription',
+      message: 'What is the description of the module?'
+    });
+
+    prompts.push({
       name: 'authorName',
       message: 'What is your github user name?'
     });
@@ -44,6 +49,7 @@ var NpmGenerator = yeoman.generators.Base.extend({
 
     this.prompt(prompts, function (props) {
       this.moduleName = props.moduleName;
+      this.moduleDescription = props.moduleDescription;
       this.authorName = props.authorName;
       this.fullName = props.fullName;
       this.emailAddress = props.emailAddress;

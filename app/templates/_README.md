@@ -1,5 +1,7 @@
 # <%= _.slugify(moduleName) %>
 
+<%= moduleDescription %>
+
 [![build status](https://secure.travis-ci.org/<%= authorName %>/<%= _.slugify(moduleName) %>.png)](http://travis-ci.org/<%= authorName %>/<%= _.slugify(moduleName) %>)
 
 ## Installation
