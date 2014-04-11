@@ -19,6 +19,9 @@
   "files": [
     "app"
   ],
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org"
+  },
   "keywords": [
     "yeoman-generator"
   ],
