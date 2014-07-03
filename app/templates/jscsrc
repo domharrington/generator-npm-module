@@ -17,8 +17,9 @@
 , "requireSpaceBeforeBinaryOperators": [ "+", "-", "/", "*", "=", "==", "===", "!=", "!==" ]
 , "requireSpaceAfterBinaryOperators": [ "+", "-", "/", "*", "=", "==", "===", "!=", "!==" ]
 , "requireSpaceAfterKeywords": [ "if", "else", "for", "while", "do", "switch", "try", "catch" ]
-, "disallowLeftStickedOperators": [ "?", "/", "*", "=", "==", "===", "!=", "!==", ">", ">=", "<", "<=" ]
-, "disallowRightStickedOperators": [ "?", "+", "/", "*", ":", "=", "==", "===", "!=", "!==", ">", ">=", "<", "<=" ]
+, "requireSpaceBeforeBinaryOperators": [ "/", "*", "=", "==", "===", "!=", "!==", ">", ">=", "<", "<=" ]
+, "requireSpaceAfterBinaryOperators": [ "+", "/", "*", ":", "=", "==", "===", "!=", "!==", ">", ">=", "<", "<=" ]
+, "requireSpacesInConditionalExpression": true
 , "disallowSpaceAfterPrefixUnaryOperators": [ "++", "--", "+", "-", "~", "!" ]
 , "disallowSpaceBeforePostfixUnaryOperators": [ "++", "--" ]
 , "requireSpaceBeforeBinaryOperators": [ "+", "-", "/", "*", "=", "==", "===", "!=", "!==" ]
