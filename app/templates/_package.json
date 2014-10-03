@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "dependencies": {},
   "scripts": {
-    "lint": "./node_modules/.bin/jshint .",
-    "checkStyle": "./node_modules/.bin/jscs .",
+    "lint": "jshint .",
+    "checkStyle": "jscs .",
     "pretest": "npm run-script lint && npm run-script checkStyle",
-    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test",
-    "posttest": "./node_modules/.bin/istanbul check-coverage && rm -rf coverage",
+    "test": "istanbul cover ./node_modules/.bin/_mocha test",
+    "posttest": "istanbul check-coverage && rm -rf coverage",
     "prepublish": "npm test && npm prune"
   },
   "publishConfig": {
@@ -17,10 +17,10 @@
   "author": "<%= fullName %> <<%= emailAddress %>>",
   "license": "ISC",
   "devDependencies": {
-    "mocha": "^1.18.2",
-    "istanbul": "^0.2.7",
-    "jshint": "^2.5.0",
-    "jscs": "^1.4.5"
+    "mocha": "^1.21.4",
+    "istanbul": "^0.3.2",
+    "jshint": "^2.5.6",
+    "jscs": "^1.6.1"
   },
   "repository": {
     "type": "git",
