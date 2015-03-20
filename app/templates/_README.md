@@ -8,10 +8,14 @@
 ## Installation
 
 ```
-npm install <%= _.slugify(moduleName) %> --save
+npm install --save <%= _.slugify(moduleName) %>
 ```
 
 ## Usage
 
 ## Credits
 [<%= fullName %>](https://github.com/<%= authorName %>/)
+
+## License
+
+New BSD

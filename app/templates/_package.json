@@ -8,19 +8,18 @@
     "checkStyle": "jscs .",
     "pretest": "npm run-script lint && npm run-script checkStyle",
     "test": "istanbul cover ./node_modules/.bin/_mocha test",
-    "posttest": "istanbul check-coverage --statements 85 --branches 70 --functions 100 --lines 90 && rm -rf coverage",
-    "prepublish": "npm test && npm prune"
+    "posttest": "istanbul check-coverage --statements 85 --branches 70 --functions 100 --lines 90 && rm -rf coverage"
   },
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
   },
   "author": "<%= fullName %> <<%= emailAddress %>>",
-  "license": "ISC",
+  "license": "New BSD",
   "devDependencies": {
-    "mocha": "^1.21.4",
-    "istanbul": "^0.3.2",
+    "istanbul": "^0.3.8",
+    "jscs": "^1.6.1",
     "jshint": "^2.5.6",
-    "jscs": "^1.6.1"
+    "mocha": "^2.2.1"
   },
   "repository": {
     "type": "git",
