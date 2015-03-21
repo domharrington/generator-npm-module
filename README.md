@@ -18,4 +18,4 @@ $ yo npm-module
 
 ## License
 
-MIT
+ISC
