@@ -6,8 +6,8 @@
   "main": "app/index.js",
   "repository": "domharrington/generator-npm-module",
   "author": {
-    "name": "",
-    "email": "",
+    "name": "Dom Harrington",
+    "email": "dom@harrington-mail.com",
     "url": "https://github.com/domharrington"
   },
   "engines": {

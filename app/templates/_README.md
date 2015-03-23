@@ -18,4 +18,4 @@ npm install --save <%= _.slugify(moduleName) %>
 
 ## License
 
-New BSD
+ISC
