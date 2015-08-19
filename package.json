@@ -27,6 +27,7 @@
   ],
   "dependencies": {
     "chalk": "^0.5.1",
+    "slugg": "^0.1.2",
     "yeoman-generator": "~0.17.0"
   },
   "devDependencies": {

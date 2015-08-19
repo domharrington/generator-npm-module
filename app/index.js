@@ -1,6 +1,7 @@
 'use strict';
 var yeoman = require('yeoman-generator')
   , chalk = require('chalk')
+  , slugify = require('slugg')
   , NpmGenerator
 
 NpmGenerator = yeoman.generators.Base.extend({
@@ -25,7 +26,7 @@ NpmGenerator = yeoman.generators.Base.extend({
     var prompts =
     [ { name: 'moduleName'
       , message: 'What is the name of your module?'
-      , default: this.appname
+      , default: slugify(this.appname)
       }
     ]
 
