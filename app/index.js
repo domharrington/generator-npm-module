@@ -25,6 +25,7 @@ NpmGenerator = yeoman.generators.Base.extend({
     var prompts =
     [ { name: 'moduleName'
       , message: 'What is the name of your module?'
+      , default: this.appname
       }
     ]
 
