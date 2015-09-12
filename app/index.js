@@ -65,9 +65,8 @@ NpmGenerator = yeoman.generators.Base.extend({
 
     this.template('_package.json', 'package.json')
     this.template('_README.md', 'README.md')
-    this.copy('jshintrc', '.jshintrc')
-    this.copy('jshintignore', '.jshintignore')
-    this.copy('jscsrc', '.jscsrc')
+    this.copy('eslintrc', '.eslintrc')
+    this.copy('eslintignore', '.eslintignore')
     this.copy('gitignore', '.gitignore')
     this.copy('travis.yml', '.travis.yml')
     this.copy('index.js', 'index.js')
