@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "dependencies": {},
   "scripts": {
-    "lint": "eslint -f unix.",
+    "lint": "eslint -f unix .",
     "inspect": "jsinspect",
     "pretest": "npm run lint && npm run inspect",
     "test": "istanbul cover ./node_modules/.bin/_mocha test",
