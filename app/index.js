@@ -64,19 +64,19 @@ NpmGenerator = yeoman.generators.Base.extend({
   }
   , module: function () {
     this.mkdir('test')
-
     this.template('_package.json', 'package.json')
     this.template('_README.md', 'README.md')
-    this.copy('jshintrc', '.jshintrc')
-    this.copy('jshintignore', '.jshintignore')
-    this.copy('jscsrc', '.jscsrc')
+    this.template('_test.js', 'test/index.test.js')
+    this.template('_LICENSE', 'LICENSE')
+    this.copy('eslintrc', '.eslintrc')
+    this.copy('eslintignore', '.eslintignore')
+    this.copy('jsinspectrc', '.jsinspectrc')
     this.copy('gitignore', '.gitignore')
     this.copy('travis.yml', '.travis.yml')
     this.copy('editorconfig', '.editorconfig')
     this.copy('index.js', 'index.js')
     this.copy('example.js', 'example.js')
-    this.template('_test.js', 'test/index.test.js')
-    this.template('_LICENSE', 'LICENSE')
+    this.copy('editorconfig', '.editorconfig')
   }
 })
 
