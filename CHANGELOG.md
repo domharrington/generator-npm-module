@@ -1,5 +1,6 @@
 # 2.0.0
 Switch to eslint
+
 Add jsinspect
 
 # 1.0.1
