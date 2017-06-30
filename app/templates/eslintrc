@@ -1,1 +1,6 @@
-../../.eslintrc
+{
+  "extends": "airbnb-base",
+  "rules": {
+
+  }
+}
