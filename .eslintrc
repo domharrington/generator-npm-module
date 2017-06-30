@@ -1,8 +1,6 @@
 {
-  "extends": "clock",
+  "extends": "airbnb-base",
+  "rules": {
 
-  "env": {
-    "es6": false
   }
-
 }

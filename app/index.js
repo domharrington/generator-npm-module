@@ -1,83 +1,62 @@
-'use strict';
-var yeoman = require('yeoman-generator')
-  , chalk = require('chalk')
-  , slugify = require('slugg')
-  , NpmGenerator
+const Generator = require('yeoman-generator');
+const slugify = require('slugg');
 
-NpmGenerator = yeoman.generators.Base.extend({
-  init: function () {
-    this.pkg = require('../package.json')
+const packageJson = require('../package.json');
 
-    this.on('end', function () {
-      if (!this.options['skip-install']) {
-        this.installDependencies()
-      }
-    })
+module.exports = class extends Generator {
+  prompting() {
+    this.log('You\'re using the fantastic Npm generator.'); // eslint-disable-line no-console
+
+    const prompts = [
+      {
+        name: 'moduleName',
+        message: 'What is the name of your module?',
+        default: slugify(this.appname),
+      },
+      {
+        name: 'moduleDescription',
+        message: 'What is the description of the module?',
+      },
+      {
+        name: 'authorName',
+        message: 'What is your github user name?',
+        store: true,
+      },
+      {
+        name: 'fullName',
+        message: 'What is your name?',
+        store: true,
+      },
+      {
+        name: 'emailAddress',
+        message: 'What is your email address?',
+        store: true,
+      },
+    ];
+
+    return this.prompt(prompts).then((answers) => {
+      this.answers = answers;
+      this.answers.moduleName = slugify(answers.moduleName);
+      this.answers.currentYear = new Date().getFullYear();
+    });
   }
-  , askFor: function () {
-    var done = this.async()
+  writing() {
+    this.fs.copyTpl(this.templatePath('_package.json'), this.destinationPath('package.json'), this.answers);
+    this.fs.copyTpl(this.templatePath('_README.md'), this.destinationPath('README.md'), this.answers);
+    this.fs.copyTpl(this.templatePath('_test.js'), this.destinationPath('test/index.test.js'), this.answers);
+    this.fs.copyTpl(this.templatePath('_LICENSE'), this.destinationPath('LICENSE'), this.answers);
 
-    // have Yeoman greet the user
-    this.log(this.yeoman)
-
-    // replace it with a short and sweet description of your generator
-    this.log(chalk.magenta('You\'re using the fantastic Npm generator.'))
-
-    var prompts =
-    [ { name: 'moduleName'
-      , message: 'What is the name of your module?'
-      , default: slugify(this.appname)
-      }
-    ]
-
-    prompts.push(
-      { name: 'moduleDescription'
-      , message: 'What is the description of the module?'
-      })
-
-    prompts.push(
-      { name: 'authorName'
-      , message: 'What is your github user name?'
-      })
-
-    prompts.push(
-      { name: 'fullName'
-      , message: 'What is your name?'
-      })
-
-    prompts.push(
-      { name: 'emailAddress'
-      , message: 'What is your email address?'
-      })
-
-    this.prompt(prompts, function (props) {
-      this.moduleName = props.moduleName
-      this.moduleDescription = props.moduleDescription
-      this.authorName = props.authorName
-      this.fullName = props.fullName
-      this.emailAddress = props.emailAddress
-
-      this.currentYear = new Date().getFullYear()
-
-      done()
-    }.bind(this))
+    this.fs.copy(this.templatePath('eslintrc'), this.destinationPath('.eslintrc'));
+    this.fs.copy(this.templatePath('eslintignore'), this.destinationPath('.eslintignore'));
+    this.fs.copy(this.templatePath('jsinspectrc'), this.destinationPath('.jsinspectrc'));
+    this.fs.copy(this.templatePath('gitignore'), this.destinationPath('.gitignore'));
+    this.fs.copy(this.templatePath('travis.yml'), this.destinationPath('.travis.yml'));
+    this.fs.copy(this.templatePath('editorconfig'), this.destinationPath('.editorconfig'));
+    this.fs.copy(this.templatePath('index.js'), this.destinationPath('index.js'));
+    this.fs.copy(this.templatePath('example.js'), this.destinationPath('example.js'));
+    this.fs.copy(this.templatePath('editorconfig'), this.destinationPath('.editorconfig'));
   }
-  , module: function () {
-    this.mkdir('test')
-    this.template('_package.json', 'package.json')
-    this.template('_README.md', 'README.md')
-    this.template('_test.js', 'test/index.test.js')
-    this.template('_LICENSE', 'LICENSE')
-    this.copy('eslintrc', '.eslintrc')
-    this.copy('eslintignore', '.eslintignore')
-    this.copy('jsinspectrc', '.jsinspectrc')
-    this.copy('gitignore', '.gitignore')
-    this.copy('travis.yml', '.travis.yml')
-    this.copy('editorconfig', '.editorconfig')
-    this.copy('index.js', 'index.js')
-    this.copy('example.js', 'example.js')
-    this.copy('editorconfig', '.editorconfig')
+  install() {
+    this.npmInstall(['eslint', 'eslint-config-airbnb-base', 'eslint-plugin-import', 'nyc', 'jsinspect', 'mocha'], { 'save-dev': true })
   }
-})
-
-module.exports = NpmGenerator
+}

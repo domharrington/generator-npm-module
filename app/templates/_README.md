@@ -1,14 +1,14 @@
-# <%= _.slugify(moduleName) %>
+# <%= moduleName %>
 
 <%= moduleDescription %>
 
-[![build status](https://secure.travis-ci.org/<%= authorName %>/<%= _.slugify(moduleName) %>.svg)](http://travis-ci.org/<%= authorName %>/<%= _.slugify(moduleName) %>)
-[![dependency status](https://david-dm.org/<%= authorName %>/<%= _.slugify(moduleName) %>.svg)](https://david-dm.org/<%= authorName %>/<%= _.slugify(moduleName) %>)
+[![build status](https://secure.travis-ci.org/<%= authorName %>/<%= moduleName %>.svg)](http://travis-ci.org/<%= authorName %>/<%= moduleName %>)
+[![dependency status](https://david-dm.org/<%= authorName %>/<%= moduleName %>.svg)](https://david-dm.org/<%= authorName %>/<%= moduleName %>)
 
 ## Installation
 
 ```
-npm install --save <%= _.slugify(moduleName) %>
+npm install --save <%= moduleName %>
 ```
 
 ## Usage

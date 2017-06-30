@@ -1,7 +1,5 @@
 language: node_js
+sudo: false
 node_js:
-  - '0.10'
-before_install:
-  - currentfolder=${PWD##*/}
-  - if [ "$currentfolder" != 'generator-npm' ]; then cd .. && eval "mv $currentfolder generator-npm" && cd generator-npm; fi
-
+  - 6.0
+  - 8.0

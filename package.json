@@ -10,11 +10,8 @@
     "email": "dom@harrington-mail.com",
     "url": "https://github.com/domharrington"
   },
-  "engines": {
-    "node": ">=0.10.0"
-  },
   "scripts": {
-    "test": "mocha"
+    "test": "eslint . -f unix"
   },
   "files": [
     "app"
@@ -26,14 +23,12 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "chalk": "^0.5.1",
     "slugg": "^0.1.2",
-    "yeoman-generator": "~0.17.0"
+    "yeoman-generator": "^1.1.1"
   },
   "devDependencies": {
-    "mocha": "^2.2.1"
-  },
-  "peerDependencies": {
-    "yo": ">=1.0.0"
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.6.1"
   }
 }
