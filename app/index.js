@@ -1,8 +1,6 @@
 const Generator = require('yeoman-generator');
 const slugify = require('slugg');
 
-const packageJson = require('../package.json');
-
 module.exports = class extends Generator {
   prompting() {
     this.log('You\'re using the fantastic Npm generator.'); // eslint-disable-line no-console
@@ -57,6 +55,6 @@ module.exports = class extends Generator {
     this.fs.copy(this.templatePath('editorconfig'), this.destinationPath('.editorconfig'));
   }
   install() {
-    this.npmInstall(['eslint', 'eslint-config-airbnb-base', 'eslint-plugin-import', 'nyc', 'jsinspect', 'mocha'], { 'save-dev': true })
+    this.npmInstall(['eslint', 'eslint-config-airbnb-base', 'eslint-plugin-import', 'nyc', 'jsinspect', 'mocha'], { 'save-dev': true });
   }
-}
+};
