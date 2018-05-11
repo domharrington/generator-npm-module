@@ -3,7 +3,7 @@ const slugify = require('slugg');
 
 module.exports = class extends Generator {
   prompting() {
-    this.log('You\'re using the fantastic Npm generator.'); // eslint-disable-line no-console
+    this.log("You're using the fantastic Npm generator.");
 
     const prompts = [
       {
@@ -32,16 +32,28 @@ module.exports = class extends Generator {
       },
     ];
 
-    return this.prompt(prompts).then((answers) => {
+    return this.prompt(prompts).then(answers => {
       this.answers = answers;
       this.answers.moduleName = slugify(answers.moduleName);
       this.answers.currentYear = new Date().getFullYear();
     });
   }
   writing() {
-    this.fs.copyTpl(this.templatePath('_package.json'), this.destinationPath('package.json'), this.answers);
-    this.fs.copyTpl(this.templatePath('_README.md'), this.destinationPath('README.md'), this.answers);
-    this.fs.copyTpl(this.templatePath('_test.js'), this.destinationPath('test/index.test.js'), this.answers);
+    this.fs.copyTpl(
+      this.templatePath('_package.json'),
+      this.destinationPath('package.json'),
+      this.answers,
+    );
+    this.fs.copyTpl(
+      this.templatePath('_README.md'),
+      this.destinationPath('README.md'),
+      this.answers,
+    );
+    this.fs.copyTpl(
+      this.templatePath('_test.js'),
+      this.destinationPath('test/index.test.js'),
+      this.answers,
+    );
     this.fs.copyTpl(this.templatePath('_LICENSE'), this.destinationPath('LICENSE'), this.answers);
 
     this.fs.copy(this.templatePath('eslintrc'), this.destinationPath('.eslintrc'));
@@ -53,8 +65,21 @@ module.exports = class extends Generator {
     this.fs.copy(this.templatePath('index.js'), this.destinationPath('index.js'));
     this.fs.copy(this.templatePath('example.js'), this.destinationPath('example.js'));
     this.fs.copy(this.templatePath('editorconfig'), this.destinationPath('.editorconfig'));
+    this.fs.copy(this.templatePath('prettierrc'), this.destinationPath('.prettierrc'));
   }
   install() {
-    this.npmInstall(['eslint', 'eslint-config-airbnb-base', 'eslint-plugin-import', 'nyc', 'jsinspect', 'mocha'], { 'save-dev': true });
+    this.npmInstall(
+      [
+        'eslint',
+        'eslint-config-airbnb-base',
+        'eslint-plugin-import',
+        'nyc',
+        'jsinspect',
+        'mocha',
+        'prettier',
+        'eslint-config-prettier',
+      ],
+      { 'save-dev': true },
+    );
   }
 };

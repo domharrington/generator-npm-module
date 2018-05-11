@@ -11,7 +11,7 @@
     "url": "https://github.com/domharrington"
   },
   "scripts": {
-    "test": "eslint . -f unix"
+    "test": "eslint . -f unix && prettier --list-different \"./**/**.js\""
   },
   "files": [
     "app"
@@ -29,6 +29,8 @@
   "devDependencies": {
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
-    "eslint-plugin-import": "^2.6.1"
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.6.1",
+    "prettier": "^1.12.1"
   }
 }
